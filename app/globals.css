@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #000000;
+  --bg-2: #0d0d12;
+  --ink: #f4f4f7;
+  --muted: #7a7a85;
+  --line: #1a1a22;
+  --cyan: #00FFFF;
+  --magenta: #FF006E;
+  --grad: linear-gradient(135deg, #00FFFF 0%, #FF006E 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* Noise + scanlines disabled to keep hero image and section bg visually identical */
+body::before { display: none !important; }
+body::after  { display: none !important; }
+
+.text-gradient {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-cyan { filter: drop-shadow(0 0 24px rgba(0, 255, 255, 0.3)); }
+.glow-magenta { filter: drop-shadow(0 0 20px rgba(255, 0, 110, 0.2)); }
+
+@media (max-width: 768px) {
+  html, body { cursor: auto; }
+  body::after { display: none; }
+}
+
+/* Prevent horizontal scroll on any screen */
+html, body { max-width: 100%; }
